@@ -4,6 +4,7 @@
 .Ruserdata
 *.csv
 *.xlsx
+*.tiff
 .Rdata
 .httr-oauth
 .DS_Store
