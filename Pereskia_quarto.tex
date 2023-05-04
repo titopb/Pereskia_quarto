@@ -1,0 +1,424 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1.0in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\usepackage{helvet}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{setspace}
+\usepackage[left]{lineno}
+\linenumbers
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, interior hidden, breakable, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
+
+\hypertarget{surviving-climate-change-understanding-the-facultative-cam-photosynthesis-in-pereskia-aculeata-plants}{%
+\section{\texorpdfstring{Surviving climate change: Understanding the
+facultative CAM photosynthesis in \emph{Pereskia aculeata}
+plants}{Surviving climate change: Understanding the facultative CAM photosynthesis in Pereskia aculeata plants}}\label{surviving-climate-change-understanding-the-facultative-cam-photosynthesis-in-pereskia-aculeata-plants}}
+
+\textbf{Runing title:} Facultative CAM photosynthesis in \emph{Pereskia
+aculeata}
+
+Luanna Costa Cenciareli\({^1}\); Moni Soares Justi\({^1}\); Sérgio Luiz
+Ferreira da Silva\({^2}\); João Paulo Alves de Barros\({^2}\); Milton C.
+Lima Neto\({^1}{^\star}\)
+
+\({^1}\)Institute of Biosciences, Coastal Campus,State University of São
+Paulo - UNESP. São Vicente, SP, Brazil. \({^2}\)Academic Unity of Serra
+Talhada, Federal Rural University of Pernambuco - UFRPE, Serra Talhada,
+PE, Brazil.
+
+\({^\star}\)To whom correspondence should be addressed:
+\href{mailto:milton.lima-neto@unesp.br}{milton.lima-neto@unesp.br}
+Institute of Biosciences, Coastal Campus. State University of São Paulo,
+P.O Box: 73601/SP ZIPCODE: 11380-972. São Vicente, SP, Brazil.
+
+\vspace{2mm}
+
+\hypertarget{abstract}{%
+\subsection{Abstract}\label{abstract}}
+
+Keywords:
+
+\newpage
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Climate change has a significant impact on global plant biodiversity and
+food security, with increasing temperatures, droughts, and extreme
+weather events posing challenges to plant growth and crop production
+(Fenollosa and Munné-Bosch, 2019). These changes threaten to reduce crop
+yields and disturb ecosystems, resulting in an increased risk of food
+insecurity and harm to communities worldwide. Therefore, it is essential
+to better comprehend the impacts of global warming on plant biodiversity
+and food security and to develop effective strategies for mitigating
+these effects, ensuring agriculture and natural ecosystems have a
+sustainable future (Rosenzweig et al., 2014). Changes in development
+patterns, including flowering and fruiting periods, as well as increased
+susceptibility to parasites and diseases, are among the diverse effects
+of climate change on plants.
+
+Climate change is leading to a harsher and drier planet, and as a
+result, the demand for water in agriculture is expected to double by
+2050, while the availability of fresh water is projected to decrease by
+50\% ((Gupta et al., 2020). Drought alone causes more annual losses in
+crop yield than all pathogens combined (Gupta et al., 2020). Water is
+essential for plant survival, and water deficits reduce plant growth.
+Drought is a common effect of climate change that negatively impacts
+plant productivity and growth by disrupting the energy balance between
+the capacity to absorb and use light energy during photosynthesis. It
+damages the physiological metabolism and photosynthesis of plants,
+ultimately reducing crop production. C3 plants typically close stomata
+under drought conditions to avoid water loss, decreasing \(CO_2\)
+assimilation (Lawson and Vialet-Chabrand, 2019). Since the
+Calvin-Benson-Bassham cycle is one of the primary electron sinks of
+photosynthetic electron transport, stomatal limitations can upset the
+delicate balance between the production and consumption of reducing
+equivalents such as \(Fd_{red}\), ATP, and NADPH, producing excess
+energy in chloroplasts (Lima Neto et al., 2017). This imbalance disrupts
+the redox equilibrium in the chloroplast, thereby altering the ROS
+processing and signaling systems (Foyer, 2018).
+
+Plants have evolved strategies to prevent water loss, including but not
+limited to closing stomata and developing deeper roots (Chaves et al.,
+2003). However, there is still much work to be done to produce crops
+that can thrive in a changing climate. Plant breeding and biotechnology
+are key areas where progress can be made to develop crops that are more
+resilient and adaptable to changing environmental conditions, such as
+heat and drought stress (Gupta et al., 2020). One potential adaptation
+strategy for plants to cope with the challenges of climate change is
+crassulacean acid metabolism (CAM), a unique type of photosynthesis that
+improves water-use efficiency (WUE) and drought tolerance
+(\textbf{luttge\_ecophysiology\_2004?}). CAM is a unique photosynthetic
+pathway that has evolved in plants growing in arid and semi-arid
+environments. CAM plants have adapted to water-limited conditions by
+fixing \(CO_2\) at night when the stomata are open, storing it as
+organic acids, and releasing it during the day when the stomata are
+closed (\textbf{luttge\_ecophysiology\_2004?}). Despite the significance
+of CAM metabolism, its regulation, molecular basis, and evolution, as
+well as the mechanisms underlying mesophyll conductance and the
+regulation of photosynthetic electron transport in these plants, are not
+completely understood (Cousins et al., 2020). Moreover, studies have
+also been conducted on the photosynthetic flexibility of facultative CAM
+plants, which can switch between CAM and C3 or C4 photosynthesis
+depending on environmental conditions (Winter and Holtum, 2014). Thus,
+understanding the physiological mechanisms underlying CAM photosynthesis
+is essential for developing strategies to improve crop productivity in
+water-limited environments and for predicting the responses of natural
+ecosystems to climate change.
+
+\emph{Pereskia aculeata} Mill., also known as ora-pro-nobis or Barbados
+gooseberry, is a highly nutritious plant species from the Cactaceae
+family, subfamily Pereskioideae. It is an edible plant commonly found in
+the Brazilian Atlantic Forest and is known for its high mineral and
+protein contents (Queiroz et al., 2015). \emph{P. aculeata} is a hardy
+and perennial plant that can grow well in various soil types. However,
+it has become a problematic invasive alien plant in other regions due to
+its plasticity and stress tolerance (Venter et al., 2022).
+
+However, the provided research results do not provide any information on
+the facultative Crassulacean Acid Metabolism (CAM) photosynthesis in P.
+aculeata plants. Therefore, further research is needed to understand the
+CAM photosynthesis in P. aculeata plants and its potential role in
+helping the species to survive in changing environmental conditions
+caused by climate change.
+
+(Luttge, 2004)
+
+\hypertarget{material-and-methods}{%
+\subsection{Material and methods}\label{material-and-methods}}
+
+\hypertarget{experimental-design-and-plant-growth}{%
+\subsubsection{Experimental design and plant
+growth}\label{experimental-design-and-plant-growth}}
+
+\hypertarget{other-topics-of-mm}{%
+\subsubsection{other topics of M\&M}\label{other-topics-of-mm}}
+
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+\hypertarget{discussion}{%
+\subsection{Discussion}\label{discussion}}
+
+\begin{itemize}
+\tightlist
+\item
+  Briefly synthesize results
+\end{itemize}
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+\hypertarget{ackonwledgments}{%
+\subsection{Ackonwledgments}\label{ackonwledgments}}
+
+\clearpage
+
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-chaves_understanding_2003}{}}%
+Chaves, M.M., Maroco, J.P., Pereira, J.S., 2003. Understanding plant
+responses to drought \textemdash{} from genes to the whole plant.
+Functional Plant Biology 30, 239. \url{https://doi.org/10.1071/FP02076}
+
+\leavevmode\vadjust pre{\hypertarget{ref-cousins2020}{}}%
+Cousins, A.B., Mullendore, D.L., Sonawane, B.V., 2020. Recent
+developments in mesophyll conductance in C3, C4, and crassulacean acid
+metabolism plants. The Plant Journal 101, 816--830.
+\url{https://doi.org/10.1111/tpj.14664}
+
+\leavevmode\vadjust pre{\hypertarget{ref-fenollosa2019}{}}%
+Fenollosa, E., Munné-Bosch, S., 2019. Physiological plasticity of plants
+facing climate change. Annual plant reviews online 2, 1--29.
+\url{https://doi.org/10.1002/9781119312994.APR0686}
+
+\leavevmode\vadjust pre{\hypertarget{ref-foyer_reactive_2018}{}}%
+Foyer, C.H., 2018. Reactive oxygen species, oxidative signaling and the
+regulation of photosynthesis. Environmental and Experimental Botany 154,
+134--142. \url{https://doi.org/10.1016/j.envexpbot.2018.05.003}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gupta2020}{}}%
+Gupta, A., Rico-Medina, A., Caño-Delgado, A.I., 2020. The physiology of
+plant responses to drought. Science 368, 266--269.
+\url{https://doi.org/10.1126/science.aaz7614}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lawson2019}{}}%
+Lawson, T., Vialet-Chabrand, S., 2019. Speedy stomata, photosynthesis
+and plant water use efficiency. New Phytologist 221, 93--98.
+\url{https://doi.org/10.1111/nph.15330}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lima_neto_regulation_2017}{}}%
+Lima Neto, M.C., Silveira, J.A.G., Cerqueira, J.V.A., Cunha, J.R., 2017.
+Regulation of the photosynthetic electron transport and specific
+photoprotective mechanisms in {Ricinus} communis under drought and
+recovery. Acta Physiologiae Plantarum 39, 183.
+\url{https://doi.org/10.1007/s11738-017-2483-9}
+
+\leavevmode\vadjust pre{\hypertarget{ref-luttge2004}{}}%
+Luttge, U., 2004. Ecophysiology of Crassulacean Acid Metabolism (CAM).
+Annals of Botany 93, 629--652. \url{https://doi.org/10.1093/aob/mch087}
+
+\leavevmode\vadjust pre{\hypertarget{ref-queiroz_growing_2015}{}}%
+Queiroz, C.R.A. dos A., de Andrade, R.R., de Morais, S.A.L., Pavani,
+L.C., 2015. Growing {Pereskia} aculeata under intermittent irrigation
+according to levels of matric potential reduction. Tropical agricultural
+research 45, 1--8. \url{https://doi.org/10.1590/1983-40632015v4527210}
+
+\leavevmode\vadjust pre{\hypertarget{ref-rosenzweig2014}{}}%
+Rosenzweig, C., Elliott, J., Deryng, D., Ruane, A.C., Müller, C.,
+Arneth, A., Boote, K.J., Folberth, C., Glotter, M., Khabarov, N.,
+Neumann, K., Piontek, F., Pugh, T.A.M., Schmid, E., Stehfest, E., Yang,
+H., Jones, J.W., 2014. Assessing agricultural risks of climate change in
+the 21st century in a global gridded crop model intercomparison.
+Proceedings of the National Academy of Sciences 111, 3268--3273.
+\url{https://doi.org/10.1073/pnas.1222463110}
+
+\leavevmode\vadjust pre{\hypertarget{ref-venter_interactive_2022}{}}%
+Venter, N., Cowie, B.W., Paterson, I.D., Witkowski, E.T.F., Byrne, M.J.,
+2022. The interactive effects of {CO2} and water on the growth and
+physiology of the invasive alien vine {Pereskia} aculeata ({Cactaceae}):
+{Implications} for its future invasion and management. Environmental and
+Experimental Botany 194, 104737.
+\url{https://doi.org/10.1016/j.envexpbot.2021.104737}
+
+\leavevmode\vadjust pre{\hypertarget{ref-winter_facultative_2014}{}}%
+Winter, K., Holtum, J.A.M., 2014. Facultative crassulacean acid
+metabolism ({CAM}) plants: {Powerful} tools for unravelling the
+functional elements of {CAM} photosynthesis. Journal of Experimental
+Botany 65, 3425--3441. \url{https://doi.org/10.1093/jxb/eru063}
+
+\end{CSLReferences}
+
+\newpage
+
+\hypertarget{tables}{%
+\subsection{Tables}\label{tables}}
+
+\hypertarget{figures}{%
+\subsection{Figures}\label{figures}}
+
+\textbf{Figure 1.} The caption of figure 1
+
+\newpage
+
+\textbf{Figure 2.} The caption of figure 2
+
+
+
+\end{document}

@@ -2,4 +2,9 @@ project:
   title: "Pereskia_quarto"
 
 editor: visual
+bibliography: references.bib
+format: 
+  pdf: 
+   keep-tex: true
+csl: style.csl
 
