@@ -9,8 +9,17 @@ dados <- read.csv(here("data", "data.csv"))
 dados$treatment <- as.factor(dados$treatment)
 dados <- janitor::clean_names(dados)
 
-view(dados)
-glimpse(dados)
+head(dados)
+
+# calculate basic statistics
+
+data_summary <- dados %>% 
+  group_by(treatment) %>% 
+  summarise(across(fm:ci, list(mean = mean, median = median, sd = sd), 
+                   .names = "{col}_{.fn}"))
+
+glimpse(data_summary)
+
 
 # atributing variable
 variable <- dados$water_potential
@@ -19,12 +28,21 @@ variable <- dados$water_potential
 # descriptive statistics by group
 # from package (psych)
 
-describeBy(variable, group = dados$treatment)
+##describeBy(variable, group = dados$treatment)
 
-# ANOVA 
-anova <- aov(variable ~treatment, dados)
-summary(anova)
+## ANOVA 
+#anova <- aov(variable ~treatment, dados)
+#summary(anova)
 
+# Perform multiple ANOVA
+data_long <- dados %>% pivot_longer(cols = fm:ci, 
+                                   names_to = "measurement", values_to = "value")
+anova_results <- list()
+for (measurement in colnames(dados)[2:22]) {
+  anova_results[[measurement]] <- aov(as.formula(paste(measurement, 
+    " ~ treatment")), data = dados)
+  print(summary(anova_results[[measurement]]))
+}
 
 # TukeyHSD
 
