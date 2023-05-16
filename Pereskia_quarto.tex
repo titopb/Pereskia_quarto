@@ -180,7 +180,7 @@
 \date{}
 
 \begin{document}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, interior hidden, breakable, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, boxrule=0pt, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, interior hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{surviving-climate-change-understanding-the-facultative-cam-photosynthesis-in-pereskia-aculeata-plants}{%
 \section{\texorpdfstring{Surviving climate change: Understanding the
@@ -233,7 +233,7 @@ of climate change on plants.
 Climate change is leading to a harsher and drier planet, and as a
 result, the demand for water in agriculture is expected to double by
 2050, while the availability of fresh water is projected to decrease by
-50\% ((Gupta et al., 2020). Drought alone causes more annual losses in
+50\% (Gupta et al., 2020). Drought alone causes more annual losses in
 crop yield than all pathogens combined (Gupta et al., 2020). Water is
 essential for plant survival, and water deficits reduce plant growth.
 Drought is a common effect of climate change that negatively impacts
@@ -248,8 +248,8 @@ photosynthetic electron transport, stomatal limitations can upset the
 delicate balance between the production and consumption of reducing
 equivalents such as \(Fd_{red}\), ATP, and NADPH, producing excess
 energy in chloroplasts (Lima Neto et al., 2017). This imbalance disrupts
-the redox equilibrium in the chloroplast, thereby altering the ROS
-processing and signaling systems (Foyer, 2018).
+the redox equilibrium in the chloroplast, thereby altering the reactive
+oxygen species (ROS) processing and signaling systems (Foyer, 2018).
 
 Plants have evolved strategies to prevent water loss, including but not
 limited to closing stomata and developing deeper roots (Chaves et al.,
@@ -261,23 +261,36 @@ heat and drought stress (Gupta et al., 2020). One potential adaptation
 strategy for plants to cope with the challenges of climate change is
 crassulacean acid metabolism (CAM), a unique type of photosynthesis that
 improves water-use efficiency (WUE) and drought tolerance
-(\textbf{luttge\_ecophysiology\_2004?}). CAM is a unique photosynthetic
-pathway that has evolved in plants growing in arid and semi-arid
-environments. CAM plants have adapted to water-limited conditions by
-fixing \(CO_2\) at night when the stomata are open, storing it as
-organic acids, and releasing it during the day when the stomata are
-closed (\textbf{luttge\_ecophysiology\_2004?}). Despite the significance
-of CAM metabolism, its regulation, molecular basis, and evolution, as
-well as the mechanisms underlying mesophyll conductance and the
-regulation of photosynthetic electron transport in these plants, are not
-completely understood (Cousins et al., 2020). Moreover, studies have
-also been conducted on the photosynthetic flexibility of facultative CAM
-plants, which can switch between CAM and C3 or C4 photosynthesis
-depending on environmental conditions (Winter and Holtum, 2014). Thus,
-understanding the physiological mechanisms underlying CAM photosynthesis
-is essential for developing strategies to improve crop productivity in
-water-limited environments and for predicting the responses of natural
-ecosystems to climate change.
+(\textbf{luttge\_ecophysiology\_2004?}). CAM is a distinctive
+photosynthetic pathway that has evolved in plants growing in arid and
+semi-arid environments.
+
+CAM plants have adapted to water-limited conditions by fixing \(CO_2\)
+at night when the stomata are open, storing it as organic acids, and
+releasing it during the day when the stomata are closed
+(\textbf{luttge\_ecophysiology\_2004?}). This obligate CAM is
+characterized by the strict separation of day and night metabolic
+activities. In contrast, CAM-idling, often seen under extreme drought
+conditions, involves nocturnal acid accumulation without daytime
+decarboxylation, essentially a ``survival mode''. CAM-cycling, exhibits
+nocturnal \(CO_2\) uptake with daytime stomatal closure but without
+significant organic acid fluctuations. Finally, weak CAM, or facultative
+CAM allows a dynamic switch between \(C_3\) and CAM modes depending on
+environmental conditions Winter and Holtum (2014).
+
+\#Revisar conceitos de CAM idling, cycling etc\ldots{}
+
+Despite the significance of CAM metabolism, its regulation, molecular
+basis, and evolution, as well as the mechanisms underlying mesophyll
+conductance and the regulation of photosynthetic electron transport in
+these plants, are not completely understood (Cousins et al., 2020).
+Moreover, studies have also been conducted on the photosynthetic
+flexibility of facultative CAM plants, which can switch between CAM and
+C3 or C4 photosynthesis depending on environmental conditions (Winter
+and Holtum, 2014). Thus, understanding the physiological mechanisms
+underlying CAM photosynthesis is essential for developing strategies to
+improve crop productivity in water-limited environments and for
+predicting the responses of natural ecosystems to climate change.
 
 \emph{Pereskia aculeata} Mill., also known as ora-pro-nobis or Barbados
 gooseberry, is a highly nutritious plant species from the Cactaceae
@@ -288,14 +301,14 @@ and perennial plant that can grow well in various soil types. However,
 it has become a problematic invasive alien plant in other regions due to
 its plasticity and stress tolerance (Venter et al., 2022).
 
+\#adicionar texto que P. aculeata pode apresentar facultative CAM.
+
 However, the provided research results do not provide any information on
-the facultative Crassulacean Acid Metabolism (CAM) photosynthesis in P.
-aculeata plants. Therefore, further research is needed to understand the
-CAM photosynthesis in P. aculeata plants and its potential role in
+the facultative CAM photosynthesis in \emph{P. aculeata} plants.
+Therefore, further research is needed to understand the CAM
+photosynthesis in \emph{P. aculeata} plants and its potential role in
 helping the species to survive in changing environmental conditions
 caused by climate change.
-
-(Luttge, 2004)
 
 \hypertarget{material-and-methods}{%
 \subsection{Material and methods}\label{material-and-methods}}
@@ -370,10 +383,6 @@ photoprotective mechanisms in {Ricinus} communis under drought and
 recovery. Acta Physiologiae Plantarum 39, 183.
 \url{https://doi.org/10.1007/s11738-017-2483-9}
 
-\leavevmode\vadjust pre{\hypertarget{ref-luttge2004}{}}%
-Luttge, U., 2004. Ecophysiology of Crassulacean Acid Metabolism (CAM).
-Annals of Botany 93, 629--652. \url{https://doi.org/10.1093/aob/mch087}
-
 \leavevmode\vadjust pre{\hypertarget{ref-queiroz_growing_2015}{}}%
 Queiroz, C.R.A. dos A., de Andrade, R.R., de Morais, S.A.L., Pavani,
 L.C., 2015. Growing {Pereskia} aculeata under intermittent irrigation
@@ -396,6 +405,10 @@ physiology of the invasive alien vine {Pereskia} aculeata ({Cactaceae}):
 {Implications} for its future invasion and management. Environmental and
 Experimental Botany 194, 104737.
 \url{https://doi.org/10.1016/j.envexpbot.2021.104737}
+
+\leavevmode\vadjust pre{\hypertarget{ref-winter_ecophysiology_2019}{}}%
+Winter, K., 2019. Ecophysiology of constitutive and facultative {CAM}
+photosynthesis. Journal of experimental botany 70, 6495--6508.
 
 \leavevmode\vadjust pre{\hypertarget{ref-winter_facultative_2014}{}}%
 Winter, K., Holtum, J.A.M., 2014. Facultative crassulacean acid
