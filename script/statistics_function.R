@@ -42,7 +42,7 @@ dados <- janitor::clean_names(dados)
 head(dados)
 
 # Calculate basic statistics
-data_summary <- basic_statistics(dados, "treatment", c("fm", "ci"))
+data_summary <- basic_statistics(dados, "treatment", names(dados)[-1])
 glimpse(data_summary)
 
 # Perform multiple ANOVA and Tukey tests
