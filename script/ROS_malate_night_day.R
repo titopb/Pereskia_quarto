@@ -47,7 +47,8 @@ tbars_plot <- ggplot(summary_data, aes(x = treatment, y = mean_TBAR,
     position = position_dodge(0.7),
     width = 0.3
   ) + 
-  labs(x = " ", y = expression(paste("TBARS nnmol g"^-1," FM"))) +
+  labs(x = " ", y = expression(paste("TBARS (nmol g"^-1," FM)"))) +
+  ylim(0,100)+
   theme_bw() +
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
@@ -67,14 +68,15 @@ h2o2_plot <- ggplot(summary_data, aes(x = treatment, y = mean_H2o2,
     position = position_dodge(0.7),
     width = 0.3
   ) + 
-  labs(x = " ", y = expression(paste("H"[2], "O"[2], " nmol g"^-1," FM"))) +
+  labs(x = " ", y = expression(paste("H"[2], "O"[2], " (nmol g"^-1," FM)"))) +
+  ylim(0, 300)+
   theme_bw() +
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 print(h2o2_plot)
 
-ggsave(here("figs", "h2o2_plot.tiff"), tbars_plot, width = 8, height = 6, dpi = 300)
+ggsave(here("figs", "h2o2_plot.tiff"), width = 8, height = 6, dpi = 300)
 
 # bar plot CAT with sd.
 
@@ -87,11 +89,76 @@ cat_plot <- ggplot(summary_data, aes(x = treatment, y = mean_cat,
     position = position_dodge(0.7),
     width = 0.3
   ) + 
-  labs(x = " ", y = expression(paste("Catalase activity ", mu, "mol H"[2],"O"[2],  " mg"^-1," protein min"^-1))) +
+  labs(x = " ", 
+       y = expression(paste("Catalase activity (", mu, "mol H"[2],"O"[2],  " mg"^-1," protein min"^-1, ")"))) +
+  ylim(0,3)+
   theme_bw() +
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 print(cat_plot)
 
-ggsave(here("figs", "cat_plot.tiff"), tbars_plot, width = 8, height = 6, dpi = 300)
+ggsave(here("figs", "cat_plot.tiff"), width = 8, height = 6, dpi = 300)
+
+# bar plot SOD with sd.
+
+sod_plot <- ggplot(summary_data, aes(x = treatment, y = mean_sod, 
+                                     fill = period)) +
+  geom_bar(stat = "identity", position = "dodge",
+           color = "black", width = 0.7) +
+  geom_errorbar(
+    aes(ymin = mean_sod - sd_sod, ymax = mean_sod + sd_sod),
+    position = position_dodge(0.7),
+    width = 0.3
+  ) + 
+  labs(x = " ", y = expression(paste("SOD activity  (U. mg"^-1," protein)"))) +
+  ylim(0,30)+
+  theme_bw() +
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+print(sod_plot)
+
+ggsave(here("figs", "sod_plot.tiff"), sod_plot, width = 8, height = 6, dpi = 300)
+
+# bar plot APX with SD
+
+apx_plot <- ggplot(summary_data, aes(x = treatment, y = mean_apx, 
+                                     fill = period)) +
+  geom_bar(stat = "identity", position = "dodge",
+           color = "black", width = 0.7) +
+  geom_errorbar(
+    aes(ymin = mean_apx - sd_apx, ymax = mean_apx + sd_apx),
+    position = position_dodge(0.7),
+    width = 0.3
+  ) + 
+  labs(x = " ", y = expression(paste("APX activity (nmol ascorbate mg"^-1," protein min"^-1, ")"))) +
+  ylim(0,200)+ 
+  theme_bw() +
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+print(apx_plot)
+
+ggsave(here("figs", "apx_plot.tiff"), apx_plot, width = 8, height = 6, dpi = 300)
+
+# barplot Malate with SD
+
+malate_plot <- ggplot(summary_data, aes(x = treatment, y = mean_malate, 
+                                        fill = period)) +
+  geom_bar(stat = "identity", position = "dodge",
+           color = "black", width = 0.7) +
+  geom_errorbar(
+    aes(ymin = mean_malate - sd_malate, ymax = mean_malate + sd_malate),
+    position = position_dodge(0.7),
+    width = 0.3
+  ) + 
+  labs(x = " ", y = expression(paste("Malate (", mu, "mol g"^-1, " DM)"))) +
+  ylim(0,400)+ 
+  theme_bw() +
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+print(malate_plot)
+
+ggsave(here("figs", "malate_plot.tiff"), width = 8, height = 6, dpi = 300)
