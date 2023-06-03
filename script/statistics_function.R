@@ -41,6 +41,16 @@ dados <- janitor::clean_names(dados)
 
 head(dados)
 
+# Calculate WUE and iWUE
+
+dados <- dados %>% 
+  mutate(wue = pn/e) %>% 
+  mutate(iwue = pn/gs)
+
+head (dados)
+
+
+
 # Calculate basic statistics
 data_summary <- basic_statistics(dados, "treatment", names(dados)[-1])
 glimpse(data_summary)
@@ -69,18 +79,18 @@ for (measurement in measurements) {
 
 # Plot boxplots 
 
-ggplot(dados, aes(treatment, fm)) +
+ggplot(dados, aes(treatment, ci)) +
   geom_errorbar(stat = 'boxplot', width = 0.2) +
   geom_boxplot(aes(fill = treatment), show.legend = F) +
   xlab("") +
-  ylab(expression(Fresh~matter~g.plant^-1))+  # fix legend
-  #ylab(expression(Psi[w]~(MPa)))+
-  #ylab("FM") +
-theme_bw() +
+  ylab(expression(paste("Ci (", mu, " mol"^-1, ")")))+  # fix legend
+  theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  scale_fill_brewer(palette = "Set1") +
-  ylim(0,800)                                                       # Fix scale 
+  scale_fill_manual(values = c("control" = "cyan3", "drought" = "coral1", "recovery" = "darkolivegreen2"))+
+  ylim(0,500)                                                       # Fix scale 
 
-ggsave(here("figs","fresh_matter.tiff"), width = 8, height = 6, dpi = 300)
+
+  
+  ggsave(here("figs","ci.tiff"), width = 8, height = 6, dpi = 300)
   
 

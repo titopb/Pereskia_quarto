@@ -30,6 +30,7 @@ pn_plot <- ggplot(summary_data, aes(x = time, y = mean_pn,
   geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
   labs(x = "Time (hours)", y = expression(paste("P"[N], " (", mu, "mol m"^-2," s"^-1, ")"))) +
   scale_x_continuous(breaks = seq(0, 24, by = 3)) +
+  scale_color_manual(values = c("control" = "cyan3", "drought" = "coral1")) +
   theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -48,6 +49,7 @@ gs_plot <- ggplot(summary_data, aes(x = time, y = mean_gs, color = treatment, sh
   geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
   labs(x = "Time (hours)", y = expression(paste("g"[s], " (", "mol m"^-2," s"^-1, ")"))) +
   scale_x_continuous(breaks = seq(0, 24, by = 3)) +
+  scale_color_manual(values = c("control" = "cyan3", "drought" = "coral1")) +
   theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
