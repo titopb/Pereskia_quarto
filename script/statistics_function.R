@@ -35,7 +35,7 @@ tukey_significance_letters <- function(tukey_result) {
 
 
 # Load and clean data
-dados <- read.csv(here("data", "data.csv"))
+dados <- read.csv(here("data", "data_with_wue.csv"))
 dados$treatment <- as.factor(dados$treatment)
 dados <- janitor::clean_names(dados)
 
@@ -49,14 +49,16 @@ dados <- dados %>%
 
 head (dados)
 
+#save new file with WUE and iWUE
 
+write.csv(dados, here("data", "data_with_wue.csv"), row.names = FALSE)
 
 # Calculate basic statistics
 data_summary <- basic_statistics(dados, "treatment", names(dados)[-1])
 glimpse(data_summary)
 
 # Perform multiple ANOVA and Tukey tests
-measurements <- colnames(dados)[2:22]
+measurements <- colnames(dados)[2:26]
 anova_results <- lapply(measurements, 
                         function(m) perform_anova(dados, paste(m, "~ treatment")))
 names(anova_results) <- measurements
@@ -79,18 +81,18 @@ for (measurement in measurements) {
 
 # Plot boxplots 
 
-ggplot(dados, aes(treatment, ci)) +
+ggplot(dados, aes(treatment, iwue)) +
   geom_errorbar(stat = 'boxplot', width = 0.2) +
   geom_boxplot(aes(fill = treatment), show.legend = F) +
   xlab("") +
-  ylab(expression(paste("Ci (", mu, " mol"^-1, ")")))+  # fix legend
+  ylab(expression(paste("WUE"[i], " (", mu, "mol mol"^-1, ")")))+  # fix legend
   theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   scale_fill_manual(values = c("control" = "cyan3", "drought" = "coral1", "recovery" = "darkolivegreen2"))+
-  ylim(0,500)                                                       # Fix scale 
+  ylim(0,0.4)                                                       # Fix scale 
 
 
   
-  ggsave(here("figs","ci.tiff"), width = 8, height = 6, dpi = 300)
+  ggsave(here("figs","iWUE.tiff"), width = 8, height = 6, dpi = 300)
   
 
