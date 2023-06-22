@@ -26,6 +26,8 @@ ${^\star}$To whom correspondence should be addressed: \href{mailto:milton.lima-n
 
 Keywords:
 
+Abbreviations: $\psi_w$ - water potential, PVPP - polivinilpolipirrolidone, rcf - relative centrifuge force,
+
 \newpage
 
 ## Introduction
@@ -50,19 +52,25 @@ While most Cactaceae species use the obligate CAM photosynthetic pathway [@luttg
 
 ### Plant material and growth conditions
 
-*Pereskia aculeata* plants were propagated from cuttings in 15 L plastic pots, using a 1:1 (v/v) mixture of washed sand and commercial substrate. They were maintained under greenhouse conditions at the Institute of Biosciences, São Paulo State University, São Vicente, Brazil. The plants were watered daily to pot capacity and supplemented weekly with a half-strength Hoagland and Arnon nutrient solution [@hoagland_water_1950]. After three months, when the plants were well-established and growing vigorously, they were divided into two groups. The first group continued to be watered daily to pot capacity (control), while the second group was watered with only 30% of the volume used to achieve pot capacity (drought). Chlorophyll fluorescence and titratable acidity were evaluated weekly. Water stressed plants showed visible wilting and chlorosis at the time of experimentation.
-
-At this point, the plants were harvested for biochemical analysis. One group of plants was kept under control conditions, while another group that had been exposed to 90 days of drought was re-watered to pot capacity for 7 days (recovery). After the recovery period, plants were harvest for future analysis. Five plants were used for each treatment, and an experimental unit was represented by one plant in a 15 L plastic pot.
+*Pereskia aculeata* plants were propagated from cuttings in 15 L plastic pots, using a 1:1 (v/v) mixture of washed sand and commercial substrate. They were maintained under greenhouse conditions at the Institute of Biosciences, São Paulo State University, São Vicente, Brazil. The plants were watered daily to pot capacity and supplemented weekly with a half-strength Hoagland and Arnon nutrient solution [@hoagland_water_1950]. After three months, when the plants were well-established and growing vigorously, they were divided into two groups. The first group continued to be watered daily to pot capacity (control), while the second group was watered with only 30% of the volume used to achieve pot capacity (drought). Water stressed plants showed visible wilting and chlorosis at the time of experimentation. At this point, plants were harvested for future analysis. One group of plants was kept under control conditions, while another group that had been exposed to 90 days of drought was re-watered to pot capacity for 7 days (recovery). After the recovery period, plants were harvest for future analysis. Five plants were used for each treatment (control, drought, control after recovery and recovery). An experimental unit was represented by one plant in a 15 L plastic pot.
 
 ### Relative water content, membrane damage and water potential
 
 After harvesting, the total above ground fresh matter (FM) of each plant was determined. The relative water content (RWC) was assessed from leaf samples immediately weighted and harvest (FM), followed by rehydration in distilled water for 24 h in dark (turgid mass. TM), and transferred to an oven at $60^o C$ until constant weight (dry weight, DM). The relative water content was calculated according @lima_neto_jatropha_2015 by the equation: $$\frac{(FM - DM)} {(TM - DM)} \cdot 100$$
 
-The membrane damage, measured by the electrolyte leakage, was assessed as described previously [@lima_neto_regulation_2017]. Leaf segments were placed in test tubes containing 10 mL of deionized water and incubated for 24 h in a shaking water bath. After that, the electric conductivity of the medium was evaluated $(L_1)$. Then, the segments were boiled for 1 h, cooled down to ambient temperature in an ice bath, and measured the electric conductivity $(L_2)$. The membrane damage (MD) was calculated as $MD=\left(\frac{L_1} {L_2}\right) \cdot 100$ and expressed in %. The leaf pre-dawn water potential $(\psi_w)$ was evaluated using a pressure chamber (3000 Scholander PWSC, ICT, International, Armidale, AUS) [@scholander_sap_1960].
+The membrane damage, measured by the electrolyte leakage, was assessed as described previously [@lima_neto_regulation_2017]. Leaf segments were placed in test tubes containing 10 mL of deionized water and incubated for 24 h in a shaking water bath. After that, the electric conductivity of the medium was evaluated $(L_1)$. Then, the segments were boiled for 1 h, cooled down to ambient temperature in an ice bath, and measured the electric conductivity $(L_2)$. The membrane damage (MD) was calculated as $MD=\left(\frac{L_1} {L_2}\right) \cdot 100$ and expressed in %.
 
-### Acid titration
+The leaf pre-dawn water potential $(\psi_w)$ was evaluated using a pressure chamber (3000 Scholander PWSC, ICT, International, Armidale, AUS) [@scholander_sap_1960]. Due to the very short petiole a fresh leaf as wrapped in Parafilm and then excised a small amount of mesophyll surrounding the midvein to fit the leaf into the chamber lid. This adapted method has an artifact with reading consistently about 0.1 - 0.2 MPa less negative, see @edwards_ecological_2006-1 .
 
-Leaf samples were collected in triplicate. The them vein was avoided and the leaf blade was frozen until assayed. The plant material were sampled before dawn and after dusk in the end of the experiment. Individual samples were ground in distilled water with a mortar and pestle. They were then tritated with 0.01 N KOH, using phenolphtalein solution as indicator. Data are expressed as $\mu eq\; acid\; g\;  FM^{-1}$ [@rayder_carbon_1981].
+### Acid titrations and pigment contents
+
+Leaf samples were collected in triplicate. The main vein was avoided and the leaf blade was frozen until assayed. The plant material were sampled before dawn and after dusk in the end of the experiment. Individual samples were ground in distilled water with a mortar and pestle. They were then tritated with 0.01 N KOH, using phenolphtalein solution as indicator. Data are expressed as $\mu eq\; acid\; g\; FM^{-1}$ [@rayder_carbon_1981].
+
+Leaf segments were sampled and extracted in dark at $8^oC$ for 8h in cold 80% acetone solution. Then, the samples were centrifuged at 10,000 rcf for 5 minutes. The supernatant was read in a spectrophotometer at different wavelengths as previously described [@lichtenthaler_determination_1983]. The total anthocyanin #artigo mangue
+
+### Protein extraction and enzymatic assays
+
+Leaf samples (1 g) were harvested and extracted in cold mortar and pestle with liquid $N_2$ and 9 mL of the extraction medium consisting of 100 mM Hepes-NaOH (pH 7.5), 2 mM $MgCl_2$, 2 mM EDTA, and 10 mM DTT. PVPP (0.5 g) was added before grinding each sample to aid mucilage removal. The homogenate was squeezed through one layer of Miracloth. The extract was centrifuged at 14,000 rcf at $4^oC$ for 20 minutes before being passed trough a small Sephadex G-25 column previously equilibrated with extraction buffer adjusted to pH 7.5. The extraction method was adapted from previous work of @rayder_carbon_1981.
 
 ### Statistical analysis
 
