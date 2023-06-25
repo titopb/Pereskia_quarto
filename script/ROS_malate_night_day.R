@@ -50,6 +50,8 @@ tbars_plot <- ggplot(summary_data, aes(x = treatment, y = mean_TBAR,
   labs(x = " ", y = expression(paste("TBARS (nmol g"^-1," FM)"))) +
   ylim(0,100)+
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -71,6 +73,8 @@ h2o2_plot <- ggplot(summary_data, aes(x = treatment, y = mean_H2o2,
   labs(x = " ", y = expression(paste("H"[2], "O"[2], " (nmol g"^-1," FM)"))) +
   ylim(0, 300)+
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -93,6 +97,8 @@ cat_plot <- ggplot(summary_data, aes(x = treatment, y = mean_cat,
        y = expression(paste("Catalase activity (", mu, "mol H"[2],"O"[2],  " mg"^-1," protein min"^-1, ")"))) +
   ylim(0,3)+
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -114,6 +120,8 @@ sod_plot <- ggplot(summary_data, aes(x = treatment, y = mean_sod,
   labs(x = " ", y = expression(paste("SOD activity  (U. mg"^-1," protein)"))) +
   ylim(0,30)+
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -135,6 +143,8 @@ apx_plot <- ggplot(summary_data, aes(x = treatment, y = mean_apx,
   labs(x = " ", y = expression(paste("APX activity (nmol ascorbate mg"^-1," protein min"^-1, ")"))) +
   ylim(0,200)+ 
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
@@ -156,6 +166,8 @@ malate_plot <- ggplot(summary_data, aes(x = treatment, y = mean_malate,
   labs(x = " ", y = expression(paste("Malate (", mu, "mol g"^-1, " DM)"))) +
   ylim(0,400)+ 
   theme_bw() +
+  theme(axis.text = element_text(size = 12)) + # Axis text size
+  theme(axis.title = element_text(size = 14)) + #Axix title size
   scale_fill_brewer(palette = "Pastel1")+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
