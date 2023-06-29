@@ -104,7 +104,7 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \KOMAoption{captions}{tableheading}
-\usepackage{helvet}
+\usepackage{soul}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage{setspace}
 \usepackage[left]{lineno}
@@ -163,12 +163,22 @@
 \makeatletter
 \makeatother
 \ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
+  pdflang={en},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -180,7 +190,7 @@
 \date{}
 
 \begin{document}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, frame hidden, boxrule=0pt, interior hidden, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{surviving-climate-change-understanding-the-facultative-cam-photosynthesis-in-pereskia-aculeata-plants}{%
 \section{\texorpdfstring{Surviving climate change: Understanding the
@@ -210,6 +220,10 @@ P.O Box: 73601/SP ZIPCODE: 11380-972. São Vicente, SP, Brazil.
 \subsection{Abstract}\label{abstract}}
 
 Keywords:
+
+Abbreviations: \(\psi_w\) - water potential, PPFD - photosynthetic
+photon flux density, PVPP - polivinilpolipirrolidone, rcf - relative
+centrifuge force, TBARS - thiobarbituric acid reactive substances;
 
 \newpage
 
@@ -251,19 +265,18 @@ energy in chloroplasts (Lima Neto et al., 2017). This imbalance disrupts
 the redox equilibrium in the chloroplast, thereby altering the reactive
 oxygen species (ROS) processing and signaling systems (Foyer, 2018).
 
-Plants have evolved strategies to prevent water loss, including but not
-limited to closing stomata and developing deeper roots (Chaves et al.,
-2003). However, there is still much work to be done to produce crops
-that can thrive in a changing climate. Plant breeding and biotechnology
-are key areas where progress can be made to develop crops that are more
-resilient and adaptable to changing environmental conditions, such as
+Plants have strategies to prevent water loss, including but not limited
+to closing stomata and developing deeper roots (Chaves et al., 2003).
+However, there is still much work to be done to produce crops that can
+thrive in a changing climate. Plant breeding and biotechnology are key
+areas where progress can be made to develop crops that are more
+resilient and adaptable to changing environmental conditions such as
 heat and drought stress (Gupta et al., 2020). One potential adaptation
 strategy for plants to cope with the challenges of climate change is
 crassulacean acid metabolism (CAM), a unique type of photosynthesis that
-improves water-use efficiency (WUE) and drought tolerance
-(\textbf{luttge\_ecophysiology\_2004?}). CAM is a distinctive
-photosynthetic pathway that has evolved in plants growing in arid and
-semi-arid environments.
+improves water-use efficiency (WUE) and drought tolerance (Luttge,
+2004). CAM is a distinctive photosynthetic pathway that has evolved in
+plants growing in arid and semi-arid environments.
 
 CAM plants have adapted to water-limited conditions by fixing \(CO_2\)
 at night when the stomata are open, storing it as organic acids, and
@@ -272,88 +285,227 @@ This process, known as obligate CAM, is characterized by the strict
 separation of day and night metabolic activities. In Phase I, which
 occurs during the dark period, \(CO_2\) is fixed by phosphoenolpyruvate
 carboxylase (PEPC) to form malate, which is then accumulated in the
-vacuole. Phase II is characterized by the transition from nocturnal to
-daytime conditions. The stomata remain open for a short time during the
-very early light period, then close as malic acid is decarboxylated to
+vacuole. In Phase II there is a transition from nocturnal to daytime
+conditions. The stomata remain open for a short time during the very
+early light period, then close as malic acid is decarboxylated to
 release \(CO_2\) for photosynthesis. During Phase III, the stomata close
 completely, and the stored malate is transported out of the vacuole. The
 malate is then decarboxylated to release \(CO_2\), which is assimilated
-via the Calvin-Benson-Bassham (CBB) cycle reactions. In Phase IV, the
+via Calvin-Benson-Bassham (CBB) cycle reactions. In Phase IV, the
 transition from daytime to nocturnal conditions occurs. When the malate
 supply is exhausted in the late afternoon, the stomata reopen for
-\(CO_2\) uptake with direct assimilation Owen and Griffiths (2013).
+\(CO_2\) uptake with direct assimilation (Luttge, 2004)
 
 The expression of CAM phases is plastic, affecting CAM terminology and
 definitions (Luttge, 2004). First, CAM-idling, often seen under extreme
 drought conditions, involves nocturnal acid accumulation without daytime
 decarboxylation, essentially a ``survival mode'', where stomata remain
 closed day and night, and the organic cycle is fed by internal recycling
-of nocturnally refixed respiratory \(CO_2\). CAM-cycling, where stomata
+of nocturnaly refixed respiratory \(CO_2\). CAM-cycling, where stomata
 remain closed during the dark period with some minor synthesis of
 organic acid fed by respiratory \(CO_2\). Stomata are open during the
 light period, with uptake of atmospheric \(CO_2\) and direct
 assimilation of CBB reactions in addition to the assimilation of
-remobilized \(CO_2\) from noctunarlly stored organic acid (Luttge,
-2004). Finally, facultative CAM allows a dynamic switch between \(C_3\)
-and CAM modes depending on environmental conditions Winter and Holtum
-(2014).
+remobilized \(CO_2\) from noctunarly stored organic acid (Luttge, 2004).
+Finally, facultative CAM allows a dynamic switch between \(C_3\) and CAM
+modes depending on environmental conditions Winter and Holtum (2014).
 
-Different species may present various forms of CAM, also be expressed
-temporarily in on given species, constituting different CAM physiotypes
-(Winter and Holtum, 2014). Despite the significance of CAM metabolism,
-its regulation, molecular basis, and evolution, as well as the
-mechanisms underlying mesophyll conductance and the regulation of
+The different species may present various forms of CAM and may also be
+expressed temporarily in a given species, constituting different CAM
+physiotypes (Winter and Holtum, 2014). Despite the significance of CAM
+metabolism, its regulation, molecular basis, and evolution, as well as
+the mechanisms underlying mesophyll conductance and the regulation of
 photosynthetic electron transport in these plants, are not completely
 understood (Cousins et al., 2020). Moreover, a comprehensive and
-coherent definition of CAM is nor straightforward. Thus, understanding
+coherent definition of CAM is not straightforward. Thus, understanding
 the physiological mechanisms underlying CAM photosynthesis is essential
 for developing strategies to improve crop productivity in water-limited
 environments and for predicting the responses of natural ecosystems to
 climate change.
 
 \emph{Pereskia aculeata} Mill., also known as ora-pro-nobis or Barbados
-gooseberry, is a highly nutritious plant species from the Cactaceae
-family, subfamily Pereskioideae. It is an edible plant commonly found in
-the Brazilian Atlantic Forest and is known for its high mineral and
-protein contents (Queiroz et al., 2015). \emph{P. aculeata} is a hardy
-and perennial plant that can grow well in various soil types. In
-contrast to other Pereskia species, which are shrubs or trees, \emph{P.
-aculeata} is classified as a liana (woody vine) owing to its
-semi-scandent growth form (Venter et al., 2022). It is becoming a
+gooseberry, is a highly nutritious leafy plant species from the
+Cactaceae family, subfamily Pereskioideae. It is an edible plant
+commonly found in the Brazilian Atlantic Forest and is known for its
+high mineral and protein contents (Queiroz et al., 2015). \emph{P.
+aculeata} is a hardy and perennial plant that can grow well in various
+soil types. In contrast to other Pereskia species, which are shrubs or
+trees, \emph{P. aculeata} is classified as a liana (woody vine) owing to
+its semi-scandent growth form (Venter et al., 2022). It is becoming a
 problematic invasive alien plant in South Africa, occurring in high
 densities, smothering native trees and shrubs, competing for resources,
 and ultimately causing the demise of the affected vegetation (Venter et
 al., 2022).
 
 While most Cactaceae species use the obligate CAM photosynthetic pathway
-Nobel and Hartsock (1987), \emph{P. aculeata} is apparently capable of
-facultative CAM-cycling (Martin and Wallace, 2000). However, this
-interpretation is controversial in the literature and more research is
-required. Despite Nobel and Hartsock (1987) showed that drought stress
-served only to reduce daytime \(CO_2\) uptake rates, with no nighttime
-uptake induced in \emph{P. aculeata}, the authors did not measure
-changes in the leaf acidity. In the research of Rayder and Ting (1981)
-they reported substantial diel changes in acidity of the leaves of
-well-watered and drought-stressed \emph{P. aculeata} plants. In light of
-the lack of information on the facultative CAM photosynthesis in
-\emph{P. aculeata} plants, the aim of our study was to evaluate the
-influence of drought on the dynamics of the induction of CAM metabolism
-in \emph{P. aculeata} plants. In particular, we were interested in (i)
-how juvenile plants of \emph{P. aculeata} adjust the components of
-ROS-responsive metabolism associated with the adjustment of light-dark
-patterns of the \(H_2O_2\) metabolism and (ii) the evaluation of light
-energy use, the adjustment of photosynthetic quantum yields, and
-photoprotective mechanisms in CAM-induced \emph{P. aculeata}.
+(Luttge, 2004), Nobel and Hartsock (1987){]}, \emph{P. aculeata} is
+apparently capable of facultative CAM-cycling (Martin and Wallace,
+2000), and drought-induced CAM-idling (Edwards and Diaz, 2006). However,
+this interpretation is controversial in the literature and more research
+is required. Despite Nobel and Hartsock (1987) showing that drought
+stress served only to reduce daytime \(CO_2\) uptake rates, with no
+nighttime uptake induced in \emph{P. aculeata}, the authors did not
+measure changes in leaf acidity. In the research of Rayder and Ting
+(1981), they reported substantial diel changes in acidity of the leaves
+of well-watered and drought-stressed \emph{P. aculeata} plants.
+Considering the lack of information on the regulation and induction of
+facultative CAM photosynthesis, the aim of our study was to evaluate the
+influence of drought on the dynamics of CAM metabolism in \emph{P.
+aculeata} plants. In particular, we were interested in how \emph{P.
+aculeata} adjust the components associated with the light-dark patterns
+of light energy use, the regulation of photosynthetic quantum yields,
+and photoprotective mechanisms.
 
 \hypertarget{material-and-methods}{%
 \subsection{Material and methods}\label{material-and-methods}}
 
-\hypertarget{experimental-design-and-plant-growth}{%
-\subsubsection{Experimental design and plant
-growth}\label{experimental-design-and-plant-growth}}
+\hypertarget{plant-material-and-growth-conditions}{%
+\subsubsection{Plant material and growth
+conditions}\label{plant-material-and-growth-conditions}}
 
-\hypertarget{other-topics-of-mm}{%
-\subsubsection{other topics of M\&M}\label{other-topics-of-mm}}
+\emph{Pereskia aculeata} plants were propagated from cuttings in 15 L
+plastic pots, using a 1:1 (v/v) mixture of washed sand and commercial
+substrate. They were maintained under greenhouse conditions at the
+Institute of Biosciences, São Paulo State University, São Vicente,
+Brazil. The plants were watered daily to pot capacity and supplemented
+weekly with a half-strength Hoagland and Arnon nutrient solution
+(Hoagland and Arnon, 1950). After three months, when the plants were
+well-established and growing vigorously, they were divided into two
+groups. The first group continued to be watered daily to pot capacity
+(control), while the second group was watered with only 30\% of the
+volume used to achieve pot capacity (drought). Water-stressed plants
+showed visible wilting and chlorosis at the time of experimentation. At
+this point, plants were harvested for future analysis. One group of
+plants was kept under control conditions, while another group that had
+been exposed to 90 days of drought was re-watered to pot capacity for 7
+days (recovery). After the recovery period, plants were harvested for
+future analysis. Five plants were used for each treatment (control,
+drought, control after recovery and recovery). An experimental unit was
+represented by one plant in 15 L plastic pot.
+
+\hypertarget{relative-water-content-membrane-damage-and-water-potential}{%
+\subsubsection{Relative water content, membrane damage and water
+potential}\label{relative-water-content-membrane-damage-and-water-potential}}
+
+After harvesting, the total aboveground fresh matter (FM) of each plant
+was determined. The relative water content (RWC) was assessed from leaf
+samples immediately weighted and harvested (FM), followed by rehydration
+in distilled water for 24 h in the dark (turgid mass. TM), and
+transferred to an oven at \(60^o C\) until constant weight (dry weight,
+DM). The relative water content was calculated according to Lima Neto et
+al. (2015) by the equation: \[\frac{(FM - DM)} {(TM - DM)} \cdot 100\]
+
+The membrane damage measured by electrolyte leakage was assessed as
+described previously (Lima Neto et al., 2017). Leaf segments were placed
+in test tubes containing 10 mL of deionized water and incubated for 24 h
+in a shaking water bath. After that, the electric conductivity of the
+medium was evaluated \((L_1)\). Then, the segments were boiled for 1 h,
+cooled down to ambient temperature in an ice bath, and measured the
+electric conductivity \((L_2)\). The membrane damage (MD) was calculated
+as \(MD=\left(\frac{L_1} {L_2}\right) \cdot 100\) and expressed in \%.
+
+The leaf predawn water potential \((\psi_w)\) was evaluated using a
+pressure chamber (3000 Scholander PWSC, ICT, International, Armidale,
+AUS) (Scholander, 1960). Due to the very short petiole, a fresh leaf as
+wrapped in Parafilm and then excised a small amount of mesophyll
+surrounding the mid-vein to fit the leaf into the chamber lid. This
+adapted method has an artifact with reading consistently about 0.1 - 0.2
+MPa less negative, see Edwards and Diaz (2006) .
+
+\hypertarget{lipid-peroxidation-and-hydrogen-peroxide-content}{%
+\subsubsection{Lipid peroxidation and hydrogen peroxide
+content}\label{lipid-peroxidation-and-hydrogen-peroxide-content}}
+
+The lipid peroxidation was assessed based on the formation of
+thiobarbituric acid reactive substances (TBARS). TBARS concentration was
+calculated using its absorption coefficient
+\((155\; mM^{-1} \; cm^{-1})\) and expressed as
+\(nmol\; MDA-TBA\; g^{-1}\; FM)\) (Cakmak and Horst, 1991). The
+\(H_2O_2\) content was determined by the Amplex Red oxidation method.
+Leaf segments were ground in a \(K^+\) phosphate buffer 100 mM, pH 7.5.
+The crude extract was centrifuged at 12,000 rcf for 30 minutes at
+\(4^o C\). Acoording to the manufacturer protocol, the supernatant was
+supplemented with 10 mM Amplex-Red and 10 U of horseradish peroxidase.
+The resorufin production was measured at 560 nm in a spectrophotometer
+(Zhou et al., 1997).
+
+\hypertarget{gas-exchange-and-chlorophyll-fluorescence}{%
+\subsubsection{Gas exchange and chlorophyll
+fluorescence}\label{gas-exchange-and-chlorophyll-fluorescence}}
+
+Gas exchange parameters were measured using an infrared gas analyzer
+(IRGA LI 6400 XT, LiCOR, Lincoln, NE, USA), with a leaf chamber
+fluorometer attached (LI-6400-40, LICOR, Lincoln, NE, USA), on the
+second fully expanded leaf. During the measurements, the conditions
+inside the IRGA chamber were controlled to PPFD of 800
+\(\mu mol\;m^{2}\;s^{-1}\), air \(CO_2\) partial pressure of 380
+\(\mu mol \; mol^{-1}\), air vapor pressure deficit (VPD) or 1.0 \(\pm\)
+0.5 kPa and air temperature of \(25^o C\). The amount of blue light was
+set to 10\% of PPFD to maximize stomatal aperture (Ziotti et al., 2019).
+Gas exchange was measured after at least 30 minutes of light exposure to
+achieve steady-state photosynthesis after photosynthetic induction.
+
+Chlorophyll \emph{a} fluorescence was measured using the saturation
+pulse method with a portable chlorophyll fluorometer (JR-PAMIII WALZ,
+Effeltrich, Germany). Leaves were dark-adapted for 30 min for assessing
+Fo and Fm. Then, the leaves were exposed to actinic light
+\((500\; \mu mol\; m^2\; s^{-1})\) for at least 30 min to reach a
+photosynthetic steady state. The actinic light used was near the
+saturation PPFD observed from previous light curves performed in our
+laboratory. The intensity and duration of the saturation pulses were
+\(8,000\; \mu mol\; m^2\; s^{-1}\) and 0.7 s, respectively. The
+following parameters were assessed: the potential quantum yield of PSII
+\([Fv/Fm = (Fm-Fo)/Fm]\); the effective quantum yield of PSII
+\([YII = (Fm'- Fs)/Fm']\), the proportion of opened \((qP)\) and closed
+\((1-qP)\) PSII states, the non-photochemical quenching
+\([NPQ = (Fm – Fm')/Fm']\), the quantum yield of non-regulated
+nonphotochemical energy loss in PSII \([Y(NO) = F/Fm]\) and the quantum
+yield of regulated non-photochemical energy loss in PSII
+\([Y(NPQ) = F/ Fm' - F/Fm]\). \(Fm\) and \(Fo\) are the maximum and
+minimum fluorescence of dark-adapted leaves, respectively; \(Fm′\) and
+\(Fs\) are the maximum and steady state fluorescence in the
+light-adapted samples (Maxwell and Johnson, 2000).
+
+\hypertarget{acid-titrations-and-pigment-contents}{%
+\subsubsection{Acid titrations and pigment
+contents}\label{acid-titrations-and-pigment-contents}}
+
+Leaf samples were collected in triplicate. The main vein was avoided and
+the leaf blade was frozen until assayed. The plant material was sampled
+before dawn and after dusk at the end of the experiment. Individual
+samples were ground in distilled water with a mortar and pestle. They
+were then tritated with 0.01 N KOH using phenolphthalein solution as
+indicator. Data are expressed as \(\mu eq\; acid\; g\; FM^{-1}\) (Rayder
+and Ting, 1981).
+
+Leaf segments were sampled and extracted in the dark at \(8^oC\) for 8h
+in cold 80\% acetone solution. Then, the samples were centrifuged at
+10,000 rcf for 5 min. The supernatant was read in a spectrophotometer at
+different wavelengths as previously described (Lichtenthaler et al.,
+1983). The total anthocyanin content was determined as previously
+described by Silva et al. (2023). Leaf segments were extracted in
+methanol and 1\% HCl at 4°C overnight. Subsequently, chloroform was
+added to the homogenate, which was then centrifuged at 14,000 rcf for 5
+min. The upper fraction was used for spectrophotometric reading at 530
+nm and 657 nm. The total anthocyanin content was expressed as A530 -
+A657 \(g^-1\) FW.
+
+\hypertarget{protein-extraction-and-enzymatic-assays}{%
+\subsubsection{Protein extraction and enzymatic
+assays}\label{protein-extraction-and-enzymatic-assays}}
+
+Leaf samples (1 g) were harvested and extracted in a cold mortar and
+pestle with liquid \(N_2\) and 9 mL of the extraction medium consisting
+of 100 mM Hepes-NaOH (pH 7.5), 2 mM \(MgCl_2\), 2 mM EDTA, and 10 mM
+DTT. PVPP (0.5 g) was added before grinding each sample to aid mucilage
+removal. The homogenate was squeezed through one layer of Miracloth. The
+extract was centrifuged at 14,000 rcf at \(4^oC\) for 20 min before
+being passed through a small Sephadex G-25 column previously
+equilibrated with extraction buffer adjusted to pH 7.5. The extraction
+method was adapted from a previous work of Rayder and Ting (1981).
+
+\hypertarget{statistical-analysis}{%
+\subsubsection{Statistical analysis}\label{statistical-analysis}}
 
 \hypertarget{results}{%
 \subsection{Results}\label{results}}
@@ -373,6 +525,10 @@ pereskioids. Whether or not diel acid fluctuations or even CAM gas
 exchange might be stimulated in these or the other species by drought
 stress was not examined in this study.'' (Martin and Wallace, 2000).
 
+Queiroz et al. (2015) propose the use of intermittent drought conditions
+to encourage higher leaf area and photosynthetic efficiency in \emph{P.
+aculeata}.
+
 Therefore, further research is needed to understand the CAM
 photosynthesis in \emph{P. aculeata} plants and its potential role in
 helping the species to survive in changing environmental conditions
@@ -391,20 +547,31 @@ caused by climate change.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Cakmak1991}{}}%
+Cakmak, I., Horst, W.J., 1991. Effect of aluminium on lipid
+peroxidation, superoxide dismutase, catalase, and peroxidase activities
+in root tips of soybean ({Glycine} max). Physiologia Plantarum 83,
+463--468. \url{https://doi.org/10.1111/j.1399-3054.1991.tb00121.x}
+
 \leavevmode\vadjust pre{\hypertarget{ref-chaves_understanding_2003}{}}%
 Chaves, M.M., Maroco, J.P., Pereira, J.S., 2003. Understanding plant
 responses to drought \textemdash{} from genes to the whole plant.
 Functional Plant Biology 30, 239. \url{https://doi.org/10.1071/FP02076}
 
-\leavevmode\vadjust pre{\hypertarget{ref-cousins2020}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-cousins_recent_2020}{}}%
 Cousins, A.B., Mullendore, D.L., Sonawane, B.V., 2020. Recent
-developments in mesophyll conductance in C3, C4, and crassulacean acid
-metabolism plants. The Plant Journal 101, 816--830.
+developments in mesophyll conductance in {C3}, {C4}, and crassulacean
+acid metabolism plants. The Plant Journal 101, 816--830.
 \url{https://doi.org/10.1111/tpj.14664}
 
-\leavevmode\vadjust pre{\hypertarget{ref-fenollosa2019}{}}%
-Fenollosa, E., Munné-Bosch, S., 2019. Physiological plasticity of plants
-facing climate change. Annual plant reviews online 2, 1--29.
+\leavevmode\vadjust pre{\hypertarget{ref-edwards_ecological_2006-1}{}}%
+Edwards, E.J., Diaz, M., 2006. Ecological physiology of {Pereskia}
+guamacho, a cactus with leaves. Plant, Cell and Environment 29,
+247--256. \url{https://doi.org/10.1111/j.1365-3040.2005.01417.x}
+
+\leavevmode\vadjust pre{\hypertarget{ref-fenollosa_physiological_2019}{}}%
+Fenollosa, E., Munné-Bosch, S., 2019. Physiological {Plasticity} of
+{Plants Facing Climate Change}. Annual plant reviews online 2, 1--29.
 \url{https://doi.org/10.1002/9781119312994.APR0686}
 
 \leavevmode\vadjust pre{\hypertarget{ref-foyer_reactive_2018}{}}%
@@ -412,15 +579,31 @@ Foyer, C.H., 2018. Reactive oxygen species, oxidative signaling and the
 regulation of photosynthesis. Environmental and Experimental Botany 154,
 134--142. \url{https://doi.org/10.1016/j.envexpbot.2018.05.003}
 
-\leavevmode\vadjust pre{\hypertarget{ref-gupta2020}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-gupta_physiology_2020}{}}%
 Gupta, A., Rico-Medina, A., Caño-Delgado, A.I., 2020. The physiology of
 plant responses to drought. Science 368, 266--269.
 \url{https://doi.org/10.1126/science.aaz7614}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lawson2019}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-hoagland_water_1950}{}}%
+Hoagland, D.R., Arnon, D.J., 1950. The water culture method for growing
+plants without soil. Agric Exp Cir 347.
+
+\leavevmode\vadjust pre{\hypertarget{ref-lawson_speedy_2019}{}}%
 Lawson, T., Vialet-Chabrand, S., 2019. Speedy stomata, photosynthesis
 and plant water use efficiency. New Phytologist 221, 93--98.
 \url{https://doi.org/10.1111/nph.15330}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lichtenthaler_determination_1983}{}}%
+Lichtenthaler, H., Wellburn, A., Lichtentharler, H.K., Welburn, A.R.,
+1983. Determination of total carotenoids and chlorophylls a and b of
+leaf extracts in different solvents. Biochemical Society Transactions
+11, 591--592. \url{https://doi.org/10.1042/bst0110591}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lima_neto_jatropha_2015}{}}%
+Lima Neto, M.C., Martins, M.O., Ferreira-Silva, S.L., Silveira, J.A.G.,
+2015. Jatropha curcas and {Ricinus} communis display contrasting
+photosynthetic mechanisms in response to enviromental conditions.
+Scientia Agricola 72, 269--269.
 
 \leavevmode\vadjust pre{\hypertarget{ref-lima_neto_regulation_2017}{}}%
 Lima Neto, M.C., Silveira, J.A.G., Cerqueira, J.V.A., Cunha, J.R., 2017.
@@ -429,9 +612,10 @@ photoprotective mechanisms in {Ricinus} communis under drought and
 recovery. Acta Physiologiae Plantarum 39, 183.
 \url{https://doi.org/10.1007/s11738-017-2483-9}
 
-\leavevmode\vadjust pre{\hypertarget{ref-luttge2004}{}}%
-Luttge, U., 2004. Ecophysiology of Crassulacean Acid Metabolism (CAM).
-Annals of Botany 93, 629--652. \url{https://doi.org/10.1093/aob/mch087}
+\leavevmode\vadjust pre{\hypertarget{ref-luttge_ecophysiology_2004}{}}%
+Luttge, U., 2004. Ecophysiology of {Crassulacean Acid Metabolism}
+({CAM}). Annals of Botany 93, 629--652.
+\url{https://doi.org/10.1093/aob/mch087}
 
 \leavevmode\vadjust pre{\hypertarget{ref-martin_photosynthetic_2000}{}}%
 Martin, C.E., Wallace, R.S., 2000. Photosynthetic {Pathway Variation} in
@@ -439,16 +623,16 @@ Martin, C.E., Wallace, R.S., 2000. Photosynthetic {Pathway Variation} in
 Journal of Plant Sciences 161, 639--650.
 \url{https://doi.org/10.1086/314285}
 
+\leavevmode\vadjust pre{\hypertarget{ref-maxwell_chlorophyll_2000}{}}%
+Maxwell, K., Johnson, G.N., 2000.
+\href{https://www.ncbi.nlm.nih.gov/pubmed/10938857}{Chlorophyll
+fluorescence--a practical guide.} Journal of experimental botany 51,
+659--68.
+
 \leavevmode\vadjust pre{\hypertarget{ref-nobel_droughtinduced_1987}{}}%
 Nobel, P.S., Hartsock, T.L., 1987. Drought-induced shifts in daily {CO2}
 uptake patterns for leafy cacti. Physiologia Plantarum 70, 114--118.
 \url{https://doi.org/10.1111/j.1399-3054.1987.tb06119.x}
-
-\leavevmode\vadjust pre{\hypertarget{ref-owen2013}{}}%
-Owen, N.A., Griffiths, H., 2013. A system dynamics model integrating
-physiology and biochemical regulation predicts extent of crassulacean
-acid metabolism ( CAM ) phases. New Phytologist 200, 1116--1131.
-\url{https://doi.org/10.1111/nph.12461}
 
 \leavevmode\vadjust pre{\hypertarget{ref-queiroz_growing_2015}{}}%
 Queiroz, C.R.A. dos A., de Andrade, R.R., de Morais, S.A.L., Pavani,
@@ -461,7 +645,7 @@ Rayder, L., Ting, I.P., 1981. Carbon {Metabolism} in {Two Species} of
 {Pereskia} ({Cactaceae}). Plant Physiology 68, 139--142.
 \url{https://doi.org/10.1104/pp.68.1.139}
 
-\leavevmode\vadjust pre{\hypertarget{ref-rosenzweig2014}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-rosenzweig_assessing_2014}{}}%
 Rosenzweig, C., Elliott, J., Deryng, D., Ruane, A.C., Müller, C.,
 Arneth, A., Boote, K.J., Folberth, C., Glotter, M., Khabarov, N.,
 Neumann, K., Piontek, F., Pugh, T.A.M., Schmid, E., Stehfest, E., Yang,
@@ -469,6 +653,17 @@ H., Jones, J.W., 2014. Assessing agricultural risks of climate change in
 the 21st century in a global gridded crop model intercomparison.
 Proceedings of the National Academy of Sciences 111, 3268--3273.
 \url{https://doi.org/10.1073/pnas.1222463110}
+
+\leavevmode\vadjust pre{\hypertarget{ref-scholander_sap_1960}{}}%
+Scholander, 1960. Sap {Pressure} in {Vascular Plants}. Science 148,
+339--346.
+
+\leavevmode\vadjust pre{\hypertarget{ref-silva_plasticity_2023}{}}%
+Silva, B.P., Saballo, H.M., Lobo, A.K.M., Neto, M.C.L., 2023. The
+plasticity of the photosynthetic apparatus and antioxidant responses are
+critical for the dispersion of {Rhizophora} mangle along a salinity
+gradient. Aquatic Botany 185, 103609.
+\url{https://doi.org/10.1016/j.aquabot.2022.103609}
 
 \leavevmode\vadjust pre{\hypertarget{ref-venter_interactive_2022}{}}%
 Venter, N., Cowie, B.W., Paterson, I.D., Witkowski, E.T.F., Byrne, M.J.,
@@ -487,6 +682,20 @@ Winter, K., Holtum, J.A.M., 2014. Facultative crassulacean acid
 metabolism ({CAM}) plants: {Powerful} tools for unravelling the
 functional elements of {CAM} photosynthesis. Journal of Experimental
 Botany 65, 3425--3441. \url{https://doi.org/10.1093/jxb/eru063}
+
+\leavevmode\vadjust pre{\hypertarget{ref-zhou_stable_1997}{}}%
+Zhou, M., Diwu, Z., Panchuk-Voloshina, N., Haugland, R.P., 1997. A
+{Stable Nonfluorescent Derivative} of {Resorufin} for the {Fluorometric
+Determination} of {Trace Hydrogen Peroxide}: {Applications} in
+{Detecting} the {Activity} of {Phagocyte NADPH Oxidase} and {Other
+Oxidases}. Analytical Biochemistry 253, 162--168.
+\url{https://doi.org/10.1006/abio.1997.2391}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ziotti_photorespiration_2019}{}}%
+Ziotti, A.B.S., Silva, B.P., Sershen, Lima Neto, M.C., 2019.
+Photorespiration is crucial for salinity acclimation in castor bean.
+Environmental and Experimental Botany 167, 103845.
+\url{https://doi.org/10.1016/j.envexpbot.2019.103845}
 
 \end{CSLReferences}
 
